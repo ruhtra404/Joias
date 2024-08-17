@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Joias Consagradas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #111;
+            margin: 0;
+            padding: 0;
+            color: #e5e5e5;
+        }
+
+        .catalog-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .catalog-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .catalog-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .catalog-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .catalog-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .catalog-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .catalog-item-info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Fundo mais escuro */
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+        }
+
+        .catalog-item.show-info .catalog-item-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .catalog-item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .catalog-item-description {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .catalog-item-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .catalog-item-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d12a2a;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+            font-weight: bold;
+        }
+
+        .catalog-item-button:hover {
+            background-color: #a12222;
+        }
+
+        .catalog-description {
+            margin-top: 50px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .catalog-header h1 {
+                font-size: 28px;
+            }
+
+            .catalog-item-title {
+                font-size: 20px;
+            }
+
+            .catalog-item-description {
+                font-size: 14px;
+            }
+
+            .catalog-item-price {
+                font-size: 18px;
+            }
+
+            .catalog-item-button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .catalog-description {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const catalogItems = document.querySelectorAll('.catalog-item');
+
+            catalogItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    this.classList.toggle('show-info');
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="catalog-container">
+        <div class="catalog-header">
+            <h1>Joias Consagradas</h1>
+        </div>
+        <div class="catalog-grid">
+            <!-- Produto 1 -->
+            <div class="catalog-item">
+                <img src="https://i.imgur.com/mhj2E84.png" alt="Pingente Consagrado">
+                <div class="catalog-item-info">
+                    <h2 class="catalog-item-title">Pingente Consagrado</h2>
+                    <p class="catalog-item-description">Pingente consagrado em ritual de proteção. Ideal para atrair energias positivas e proteção espiritual.</p>
+                    <p class="catalog-item-price">R$ 1.299,00</p>
+                    <a href="https://wa.me/5511912345678?text=Estou%20interessado%20no%20Pingente%20Consagrado" class="catalog-item-button">Comprar</a>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="catalog-item">
+                <img src="https://i.imgur.com/5zv93xF.jpeg" alt="Anel Consagrado">
+                <div class="catalog-item-info">
+                    <h2 class="catalog-item-title">Anel Consagrado</h2>
+                    <p class="catalog-item-description">Anel consagrado para fortalecer laços afetivos e atrair amor duradouro. Feito com materiais preciosos.</p>
+                    <p class="catalog-item-price">R$ 2.499,00</p>
+                    <a href="https://wa.me/5511912345678?text=Estou%20interessado%20no%20Anel%20Consagrado" class="catalog-item-button">Comprar</a>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="catalog-item">
+                <img src="https://i.imgur.com/Kn7xsvf.jpg" alt="Pulseira Consagrada">
+                <div class="catalog-item-info">
+                    <h2 class="catalog-item-title">Pulseira Consagrada</h2>
+                    <p class="catalog-item-description">Pulseira consagrada para saúde e bem-estar, criada com pedras que promovem cura e energia vital.</p>
+                    <p class="catalog-item-price">R$ 1.899,00</p>
+                    <a href="https://wa.me/5511912345678?text=Estou%20interessado%20na%20Pulseira%20Consagrada" class="catalog-item-button">Comprar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog-description">
+            <p>As joias são consagradas ritualisticamente de modo a se tornarem talismãs e artefatos de poder.</p>
+            <p>A consagração das joias pode ser feita em rituais específicos que costumo realizar ou sob encomenda, realizando um ritual individual.</p>
+            <p>Os amuletos que disponibilizo são para as mais diversas finalidades como:</p>
+            <ul>
+                <li>Proteção espiritual e psíquica</li>
+                <li>Prosperidade e riqueza</li>
+                <li>Poder pessoal e magnetismo</li>
+                <li>Amor próprio e auto</li>
+                <li>Conexão e elevação espiritual</li>
+            </ul>
+            <p>As joias absorvem a energia gerada durante os rituais de modo que ao utilizá-las você sempre estará desfrutando desta energia e poder.</p>
+        </div>
+    </div>
+</body>
+
+</html>
